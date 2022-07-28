@@ -1,7 +1,0 @@
-# Maven
-- task: CmdLine@2
-  inputs:
-    script: |
-      javac jj.java
-      
-      java jj
