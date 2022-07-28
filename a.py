@@ -1,5 +1,5 @@
 import os
-import subprocess
+from subprocess import Popen, PIPE
 
 num1 = 10
 num2 = 30
@@ -11,8 +11,8 @@ sum = float(num1) + float(num2)
 print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
 
 # Check the firewall status
-cmd = 'sudo ufw status'.split()
-print (f"Firewall status: subprocess.call({cmd})")
+process = Popen(['sudo', 'ufw', 'status'], stdout=PIPE, stderr=PIPE)
+stdout, stderr = process.communicate()
 
 # Ping an external Windows machine from within the pipeline
 ip_list = ['192.168.0.174', '127.0.0.1', '127.0.1.1', '10.0.2.15', '8.8.8.8', 'google.com']
