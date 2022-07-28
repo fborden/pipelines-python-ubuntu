@@ -14,4 +14,4 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      python a.py
+      a.sh
