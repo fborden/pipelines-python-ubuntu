@@ -24,7 +24,7 @@ substring="Destination Host Unreachable"
 for ip in "${ip_list[@]}"
 do
 
-    response=`ping $ip -c 4`
+    response=`expr ping $ip -c 4`
     printf "\n\n$response\n\n"
     
     #if [[ "$response" =~ "$substring" ]]
