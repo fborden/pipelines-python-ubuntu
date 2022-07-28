@@ -14,4 +14,4 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      a.sh
+      /bin/bash a.sh
