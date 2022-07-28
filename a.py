@@ -10,7 +10,7 @@ sum = float(num1) + float(num2)
 print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
 
 # Check the firewall status
-fwstatus = ${sudo ufw status}
+fwstatus = "${sudo ufw status}"
 print (f"FIrewall status: {fwstatus}")
 
 # Ping an external Windows machine from within the pipeline
