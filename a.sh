@@ -1,11 +1,10 @@
 #!/bin/bash
 
-
-num1 = 10
-num2 = 30
+num1=10
+num2=30
  
 # Add two numbers
-sum =`expr $num1 + $num2`
+sum=$(($num1 + $num2))
  
 # Display the sum
 echo "The sum of $num1 and $num2 is $sum"
