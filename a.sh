@@ -11,7 +11,7 @@
 
 # Check the firewall status
 cmd=`sudo ufw status`
-printf "Firewall Status: $cmd\n\n"
+printf "\nFirewall Status: $cmd\n\n"
 
 # Check firwall rules for ICPM
 cmd=`sudo cat /etc/ufw/before.rules | grep -i icmp`
@@ -23,14 +23,15 @@ substring="Destination Host Unreachable"
 
 for ip in "${ip_list[@]}"
 do
+
     response=`ping $ip -c 4`
-    printf "Ping response:\n$response\n"
+    printf "Ping response:\n$response\n\n"
     
     if [[ "$response" =~ "$substring" ]]
     then
-        printf "\nDOWN: $ip Ping Unsuccessful"
+        printf "\n\nDOWN: $ip Ping Unsuccessful\n\n"
     else
-        printf "\nUP: $ip Ping Successful"
+        printf "\n\nUP: $ip Ping Successful\n\n"
     fi
     
 done
