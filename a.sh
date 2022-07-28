@@ -15,17 +15,25 @@ printf "\nFirewall Status: $cmd\n\n"
 
 # Check firwall rules for ICPM
 cmd=`sudo cat /etc/ufw/before.rules | grep -i icmp`
-printf "firewall rules for icmp:\n$cmd\n\n"
+printf "Firewall ules for ICMP/ping:\n$cmd\n\n"
 
 # Ping an external Windows machine from within the pipeline
-ip_list=( 192.168.0.174 127.0.0.1 127.0.1.1 10.0.2.15 8.8.8.8 192.168.1.1 google.com )
+ip_list=( 192.168.0.174 127.0.0.1 127.0.1.1 10.0.2.15 8.8.8.8 192.168.1.1 )
 substring="Destination Host Unreachable"
 
 for ip in "${ip_list[@]}"
 do
 
-    response=`expr ping $ip -c 4`
-    printf "\n\n$response\n\n"
+    response=`ping -w 30 -c 1 $ip`
+    rc=$?
+    if [[ $rc -eq 1 ]]
+    then
+         printf "\n$response\n"
+         printf "\n\nDOWN: $ip Ping Unsuccessful\n\n"
+    else
+        printf "\n$response\n"
+        printf "\n\nUP: $ip Ping Successful\n\n"
+    fi
     
     #if [[ "$response" =~ "$substring" ]]
     #then
