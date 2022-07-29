@@ -24,7 +24,8 @@ substring="Destination Host Unreachable"
 for ip in "${ip_list[@]}"
 do
 
-    response=`ping -w 30 -c 1 $ip`
+    #response=`ping -w 30 -c 1 $ip`
+    response=$(ping -w 30 -c 1 $ip)
     rc=$?
     if [[ $rc -eq 1 ]]
     then
