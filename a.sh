@@ -11,11 +11,11 @@
 
 # Check the firewall status
 cmd=`sudo ufw status`
-printf "\nFirewall Status: $cmd\n\n"
+#printf "\nFirewall Status: $cmd\n\n"
 
 # Check firwall rules for ICPM
 cmd=`sudo cat /etc/ufw/before.rules | grep -i icmp`
-printf "Firewall rules for ICMP/ping:\n$cmd\n\n"
+#printf "Firewall rules for ICMP/ping:\n$cmd\n\n"
 
 # Ping an external Windows machine from within the pipeline
 ip_list=( 192.168.0.174 127.0.0.1 127.0.1.1 10.0.2.15 8.8.8.8 192.168.1.1 google.com cincom.com )
@@ -31,11 +31,11 @@ do
     then
          #printf "\n$response\n"
          printf "%s\n" ---------------
-         printf "DOWN: $ip Ping Unsuccessful"
+         printf "\nDOWN: $ip Ping Unsuccessful"
     else
         #printf "\n$response\n"
          printf "%s\n" ---------------
-        printf "UP: $ip Ping Successful"
+        printf "\nUP: $ip Ping Successful"
     fi
     
     #if [[ "$response" =~ "$substring" ]]
