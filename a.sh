@@ -31,11 +31,11 @@ do
     then
          #printf "\n$response\n"
          printf "%s\n" ---------------
-         printf "%s\n" DOWN: $ip - Ping Unsuccessful
+         printf "DOWN: $ip Ping Unsuccessful\n"
     else
         #printf "\n$response\n"
         printf "%s\n" ---------------
-        printf "%s\n" UP: $ip Ping - Successful
+        printf "UP: $ip Ping Successful\n"
     fi
     
     #if [[ "$response" =~ "$substring" ]]
